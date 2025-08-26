@@ -1,0 +1,121 @@
+# ===========================================
+# ETERNA - FICHIER .GITIGNORE OPTIMISÉ
+# ===========================================
+
+# Dépendances
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build et distribution
+dist/
+dist_electron/
+out/
+build/
+.next/
+.nuxt/
+.vuepress/dist
+.serverless/
+.fusebox/
+.dynamodb/
+
+# Electron builds (fichiers volumineux)
+*.exe
+*.dmg
+*.deb
+*.rpm
+*.AppImage
+*.snap
+*.blockmap
+*.zip
+*.tar.gz
+*.msi
+*.pkg
+
+# Variables d'environnement
+.env*
+!.env.example
+
+# Configuration sensible
+config.json
+secrets.json
+api-keys.json
+credentials.json
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+
+# Logs
+*.log
+logs/
+log/
+
+# Cache et temporaires
+.cache/
+.temp/
+.tmp/
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# IDE et éditeurs
+.vscode/
+.idea/
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Tests et couverture
+coverage/
+.nyc_output/
+.coverage
+*.lcov
+.jest/
+test-results/
+playwright-report/
+
+# Base de données
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Sauvegardes
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*.sav
+eterna-backup-*.json
+
+# Spécifique Eterna
+eterna-data.json
+builder-debug.yml
+builder-effective-config.yaml

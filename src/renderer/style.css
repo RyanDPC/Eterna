@@ -1,0 +1,405 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-primary text-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Composants personnalisés */
+  .btn-primary {
+    @apply bg-sakura-500 hover:bg-sakura-600 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-200 hover:shadow-glow active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-background-tertiary hover:bg-background-elevated text-white font-medium py-2 px-4 rounded-xl border border-border-primary transition-all duration-200 hover:border-sakura-400 active:scale-95;
+  }
+  
+  .card {
+    @apply bg-background-secondary border border-border-primary rounded-2xl p-6 shadow-lg backdrop-blur-sm;
+  }
+  
+  .input-field {
+    @apply bg-background-tertiary border border-border-primary rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:border-sakura-400 focus:ring-2 focus:ring-sakura-400/20 transition-all duration-200;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-background-tertiary transition-all duration-200 cursor-pointer;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-sakura-500 text-white shadow-glow;
+  }
+}
+
+@layer utilities {
+  /* Utilitaires personnalisés */
+  .text-gradient {
+    @apply bg-gradient-to-r from-sakura-400 to-sakura-600 bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-sakura {
+    @apply bg-gradient-to-br from-sakura-500 via-sakura-600 to-sakura-700;
+  }
+  
+  .shadow-sakura {
+    @apply shadow-glow;
+  }
+  
+  .backdrop-blur-glass {
+    @apply backdrop-blur-md bg-white/5;
+  }
+  
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.sakura.500') theme('colors.background.primary');
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: theme('colors.background.primary');
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: theme('colors.sakura.500');
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.sakura.600');
+  }
+}
+
+/* Animations personnalisées */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Styles pour l'en-tête élégante */
+.header-sakura {
+  background: linear-gradient(135deg, 
+    rgba(17, 24, 39, 0.9) 0%, 
+    rgba(31, 41, 55, 0.9) 50%, 
+    rgba(17, 24, 39, 0.9) 100%
+  );
+  border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+.search-input-sakura {
+  box-shadow: 
+    0 0 0 1px rgba(236, 72, 153, 0.2),
+    0 0 10px rgba(236, 72, 153, 0.1);
+}
+
+.search-input-sakura:focus {
+  box-shadow: 
+    0 0 0 2px rgba(236, 72, 153, 0.4),
+    0 0 20px rgba(236, 72, 153, 0.15);
+}
+
+.logo-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-hover:hover {
+  transform: scale(1.05) rotate(2deg);
+  filter: brightness(1.2) saturate(1.1);
+}
+
+.button-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-hover:hover {
+  transform: scale(1.1) translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* Animation de pulsation pour le statut en ligne */
+.status-pulse {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.2);
+  }
+}
+
+/* Sélection de texte personnalisée */
+::selection {
+  background: theme('colors.sakura.400');
+  color: white;
+}
+
+::-moz-selection {
+  background: theme('colors.sakura.400');
+  color: white;
+}
+
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Background animé principal */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease-in-out infinite;
+}
+
+/* Animation du gradient */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Particules flottantes */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(147, 51, 234, 0.1) 100%);
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.particle:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 80%;
+  animation-delay: 3s;
+  animation-duration: 22s;
+}
+
+.particle:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  left: 20%;
+  animation-delay: 6s;
+  animation-duration: 16s;
+}
+
+.particle:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 70%;
+  animation-delay: 9s;
+  animation-duration: 20s;
+}
+
+.particle:nth-child(5) {
+  width: 70px;
+  height: 70px;
+  top: 70%;
+  left: 60%;
+  animation-delay: 12s;
+  animation-duration: 17s;
+}
+
+/* Animation de flottement des particules */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(15px) translateX(5px) rotate(270deg);
+    opacity: 0.7;
+  }
+}
+
+/* Lignes de connexion subtiles */
+.connection-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.connection-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
+  height: 1px;
+  animation: lineFlow 25s linear infinite;
+}
+
+.connection-line:nth-child(1) {
+  top: 25%;
+  width: 200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.connection-line:nth-child(2) {
+  top: 45%;
+  width: 150px;
+  left: -150px;
+  animation-delay: 8s;
+}
+
+.connection-line:nth-child(3) {
+  top: 65%;
+  width: 180px;
+  left: -180px;
+  animation-delay: 16s;
+}
+
+/* Animation des lignes de connexion */
+@keyframes lineFlow {
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Variables CSS pour les couleurs */
+:root {
+  --background-primary: rgba(15, 15, 35, 0.8);
+  --background-secondary: rgba(26, 26, 46, 0.9);
+  --border-primary: rgba(236, 72, 153, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-pink: #ec4899;
+  --accent-purple: #9333ea;
+}
+
+/* Styles pour les composants avec transparence */
+.bg-background-primary {
+  background-color: var(--background-primary);
+  backdrop-filter: blur(10px);
+}
+
+.bg-background-secondary {
+  background-color: var(--background-secondary);
+  backdrop-filter: blur(15px);
+}
+
+.border-border-primary {
+  border-color: var(--border-primary);
+}
+
+/* Effet de glassmorphism pour les modals */
+.glass-effect {
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 15, 35, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-pink), var(--accent-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #db2777, #7c3aed);
+}
+
+

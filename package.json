@@ -1,0 +1,94 @@
+{
+  "name": "eterna-app",
+  "version": "1.0.0",
+  "description": "Eterna - Application moderne de communication avec thème Sakura",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:prod": "vite build --mode production",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint:check": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
+    "type-check": "vue-tsc --noEmit",
+    "clean": "rimraf dist",
+    "build:clean": "npm run clean && npm run build",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:pack": "npm run build && electron-builder --dir",
+    "electron:dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.5",
+    "pinia": "^2.1.7",
+    "@vueuse/core": "^10.5.0",
+    "lucide-vue-next": "^0.294.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.0",
+    "@vue/tsconfig": "^0.4.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "typescript": "~5.2.0",
+    "vite": "^5.0.0",
+    "vue-tsc": "^1.8.22",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "eslint": "^8.54.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "rimraf": "^5.0.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "build": {
+    "appId": "com.eterna.app",
+    "productName": "Eterna",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**/*",
+      "src/main.js",
+      "src/preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "Eterna.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "runAfterFinish": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "installerIcon": "Eterna.ico",
+      "uninstallerIcon": "Eterna.ico",
+      "installerHeaderIcon": "Eterna.ico",
+      "menuCategory": "Eterna",
+      "shortcutName": "Eterna",
+      "uninstallDisplayName": "Eterna",
+      "artifactName": "Eterna-Setup-${version}.${ext}"
+    }
+  }
+}
