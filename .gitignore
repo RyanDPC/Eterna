@@ -24,6 +24,7 @@ build/
 
 # Electron builds (fichiers volumineux)
 *.exe
+!Eterna.exe
 *.dmg
 *.deb
 *.rpm
