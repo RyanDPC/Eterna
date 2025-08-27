@@ -98,6 +98,20 @@ if exist "dist_electron\win-unpacked\Eterna.exe" (
 )
 
 echo.
+echo 🔄 Copie de l'exécutable à la racine pour GitHub...
+if exist "dist_electron\Eterna-Setup-1.0.0.exe" (
+    copy "dist_electron\Eterna-Setup-1.0.0.exe" "Eterna-Setup-1.0.0.exe" >nul
+    if errorlevel 1 (
+        echo ❌ Erreur lors de la copie de l'exécutable
+    ) else (
+        echo ✅ Exécutable copié à la racine : Eterna-Setup-1.0.0.exe
+        echo 🌐 Maintenant visible par GitHub pour les releases automatiques !
+    )
+) else (
+    echo ⚠️ Installateur non trouvé, copie impossible
+)
+
+echo.
 echo 💡 Si vous avez des problèmes d'installation, utilisez scripts\clean-eterna.bat
 
 pause

@@ -27,6 +27,9 @@ export const useAppStore = defineStore('app', () => {
     isSpeaking: false
   })
 
+  // Informations de mise à jour
+  const updateInfo = ref(null)
+
   // Participants connectés au canal vocal actuel
   const voiceParticipants = ref(new Map())
 
@@ -82,6 +85,15 @@ export const useAppStore = defineStore('app', () => {
   // Actions
   const toggleTheme = () => {
     theme.value = theme.value === 'dark' ? 'light' : 'dark'
+  }
+
+  // Gestion des mises à jour
+  const setUpdateAvailable = (info) => {
+    updateInfo.value = info
+  }
+
+  const clearUpdateInfo = () => {
+    updateInfo.value = null
   }
 
   const setCurrentServer = (server) => {
@@ -1328,6 +1340,7 @@ const fixCurrentUserRole = () => {
     messages,
     modals,
     voiceStatus,
+    updateInfo,
     
     // Gestion des canaux vocaux et CTL
     createVoiceChannel,
@@ -1359,6 +1372,8 @@ const fixCurrentUserRole = () => {
 
     // Actions
     toggleTheme,
+    setUpdateAvailable,
+    clearUpdateInfo,
     setCurrentServer,
     setCurrentChannel,
     

@@ -31,8 +31,11 @@
       @register="handleRegister"
     />
 
+    <!-- Vérificateur de mises à jour -->
+    <UpdateChecker />
+
     <!-- Interface principale après authentification -->
-    <div v-else class="h-full flex flex-col">
+    <div v-if="authStore.isAuthenticated" class="h-full flex flex-col">
       <!-- Header élégant et minimaliste -->
       <header class="h-16 header-sakura flex items-center justify-between px-6 backdrop-blur-md flex-shrink-0">
         <!-- Profil utilisateur principal -->
@@ -386,6 +389,7 @@ import SettingsModal from './components/SettingsModal.vue'
 import FriendsPanel from './components/FriendsPanel.vue'
 import VoiceStatusModal from './components/VoiceStatusModal.vue'
 import MembersModal from './components/MembersModal.vue'
+import UpdateChecker from './components/UpdateChecker.vue'
 
 // Stores
 const authStore = useAuthStore()

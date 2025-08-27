@@ -108,6 +108,17 @@
     rgba(17, 24, 39, 0.9) 100%
   );
   border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+  -webkit-app-region: drag; /* Rendre l'en-tête déplaçable */
+}
+
+/* Régions non-déplaçables pour les boutons et éléments interactifs */
+.header-sakura button,
+.header-sakura input,
+.header-sakura select,
+.header-sakura textarea,
+.header-sakura [role="button"],
+.header-sakura [tabindex] {
+  -webkit-app-region: no-drag; /* Empêcher le glissement sur les éléments interactifs */
 }
 
 .search-input-sakura {
