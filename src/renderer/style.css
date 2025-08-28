@@ -413,4 +413,7 @@ html, body {
   background: linear-gradient(180deg, #db2777, #7c3aed);
 }
 
+/* Import du thème de base d'Eterna */
+@import './assets/base-theme.css';
+
 

@@ -558,51 +558,21 @@
                   <span class="setting-label-discord">{{ tLocal('settings.theme') }}</span>
                   <span class="setting-description-discord">Sélectionnez le thème de votre choix pour Eterna</span>
                 </div>
-                <div class="setting-control-discord">
-                  <div class="theme-grid-discord">
-                    <div 
-                      @click="appStore.updateSetting('theme', 'dark')"
-                      :class="['theme-card-discord', { 'active': appStore.settings.theme === 'dark' }]"
-                    >
-                      <div class="theme-preview-discord dark-preview">
-                        <div class="preview-header-discord"></div>
-                        <div class="preview-content-discord">
-                          <div class="preview-sidebar-discord"></div>
-                          <div class="preview-main-discord"></div>
+                                  <div class="setting-control-discord">
+                    <div class="theme-info-discord">
+                      <div class="theme-base-message">
+                        <div class="theme-base-icon">🎨</div>
+                        <div class="theme-base-text">
+                          <h4>Thème de Base d'Eterna</h4>
+                          <p>L'application utilise le thème de base unique d'Eterna, conçu pour offrir la meilleure expérience utilisateur.</p>
+                          <div class="theme-status">
+                            <span class="status-label">Thème actuel:</span>
+                            <span class="status-value">Base Eterna</span>
+                          </div>
                         </div>
                       </div>
-                      <span class="theme-name-discord">{{ tLocal('settings.darkMode') }}</span>
-                    </div>
-                    
-                    <div 
-                      @click="appStore.updateSetting('theme', 'light')"
-                      :class="['theme-card-discord', { 'active': appStore.settings.theme === 'light' }]"
-                    >
-                      <div class="theme-preview-discord light-preview">
-                        <div class="preview-header-discord"></div>
-                        <div class="preview-content-discord">
-                          <div class="preview-sidebar-discord"></div>
-                          <div class="preview-main-discord"></div>
-                        </div>
-                      </div>
-                      <span class="theme-name-discord">{{ tLocal('settings.lightMode') }}</span>
-                    </div>
-                    
-                    <div 
-                      @click="appStore.updateSetting('theme', 'auto')"
-                      :class="['theme-card-discord', { 'active': appStore.settings.theme === 'auto' }]"
-                    >
-                      <div class="theme-preview-discord auto-preview">
-                        <div class="preview-header-discord"></div>
-                        <div class="preview-content-discord">
-                          <div class="preview-sidebar-discord"></div>
-                          <div class="preview-main-discord"></div>
-                        </div>
-                      </div>
-                      <span class="theme-name-discord">{{ tLocal('settings.autoTheme') }}</span>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
 
@@ -2577,5 +2547,59 @@ input:checked + .toggle-slider-discord:before {
   .quick-actions-discord {
     grid-template-columns: 1fr;
   }
+}
+
+/* Grille de thèmes - Supprimée car thème de base unique */
+
+/* Message de thème de base */
+.theme-info-discord {
+  width: 100%;
+}
+
+.theme-base-message {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #5865f2, #8b5cf6);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+}
+
+.theme-base-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.theme-base-text h4 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.theme-base-text p {
+  margin: 0 0 12px 0;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.theme-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.status-label {
+  opacity: 0.8;
+}
+
+.status-value {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
 }
 </style>

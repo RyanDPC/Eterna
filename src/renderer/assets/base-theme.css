@@ -1,0 +1,143 @@
+/* 🎨 THÈME DE BASE ETERNA */
+/* Thème unique et statique pour l'application */
+
+/* Variables CSS du thème de base d'Eterna */
+:root {
+  /* Couleurs de base */
+  --background-primary: #1a1a1a;
+  --background-secondary: #2d2d2d;
+  --background-tertiary: #404040;
+  --background-elevated: #2d2d2d;
+  --background-overlay: rgba(0, 0, 0, 0.95);
+  
+  /* Couleurs de texte */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #a1a1aa;
+  --text-inverse: #1a1a1a;
+  
+  /* Couleurs de bordure */
+  --border-primary: #404040;
+  --border-secondary: #505050;
+  --border-accent: #5865f2;
+  
+  /* Couleurs d'accent */
+  --accent-primary: #5865f2;
+  --accent-secondary: #8b5cf6;
+  --accent-success: #43b581;
+  --accent-warning: #faa61a;
+  --accent-error: #f04747;
+  --accent-info: #5865f2;
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  
+  /* Effets de verre */
+  --glass-opacity: 0.95;
+  --backdrop-blur: blur(20px);
+  --glass-effect: rgba(45, 45, 45, 0.95);
+  
+  /* Espacements */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Rayons de bordure */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Classe de thème de base */
+.theme-base {
+  /* Appliquer les variables CSS */
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+/* Styles de base pour tous les éléments */
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Éléments de base */
+* {
+  box-sizing: border-box;
+}
+
+/* Liens */
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-secondary);
+}
+
+/* Boutons */
+button {
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+button:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-1px);
+}
+
+/* Inputs */
+input, textarea, select {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  transition: border-color var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.2);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: var(--border-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-secondary);
+}

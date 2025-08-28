@@ -83,10 +83,9 @@ export const useAppStore = defineStore('app', () => {
   })
 
   // Actions
-  const toggleTheme = () => {
-    theme.value = theme.value === 'dark' ? 'light' : 'dark'
-  }
-
+  // 🎨 THÈME DE BASE UNIQUE - Plus de gestion des thèmes sombre/clair
+  // Les fonctions toggleTheme et updateTheme ont été supprimées car obsolètes
+  
   // Gestion des mises à jour
   const setUpdateAvailable = (info) => {
     updateInfo.value = info
@@ -1276,7 +1275,7 @@ const createCleanServer = () => {
       channels: channels.value,
       messages: messages.value,
       voiceParticipants: voiceParticipants.value,
-      settings: appStore.settings || {}
+      settings: settings.value || {}
     }))
     console.log('✅ Sauvegarde directe effectuée')
   } catch (error) {
@@ -1322,7 +1321,7 @@ const fixCurrentUserRole = () => {
       messages: messages.value,
       voiceParticipants: voiceParticipants.value,
       users: getAuthStore().users,
-      settings: appStore.settings || {}
+      settings: settings.value || {}
     }))
     console.log('✅ Rôle utilisateur corrigé et sauvegardé')
   } catch (error) {
@@ -1371,7 +1370,10 @@ const fixCurrentUserRole = () => {
     currentChannelMessages,
 
     // Actions
-    toggleTheme,
+    // 🎨 THÈME DE BASE UNIQUE - Plus de gestion des thèmes sombre/clair
+    // Les fonctions toggleTheme et updateTheme ont été supprimées car obsolètes
+    
+    // Gestion des mises à jour
     setUpdateAvailable,
     clearUpdateInfo,
     setCurrentServer,
