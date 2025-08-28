@@ -869,9 +869,9 @@ const handleVoiceChannelCreated = ({ voiceChannel, linkedTextChannel }) => {
 // 🎨 WATCHER POUR APPLIQUER AUTOMATIQUEMENT LES CHANGEMENTS D'APPEARANCE
 // Surveiller seulement les changements de thème et couleur d'accent
 watch(
-  () => [appStore.settings.theme, appStore.settings.accentColor],
-  ([newTheme, newAccentColor]) => {
-    console.log('🎨 Changement de thème/couleur détecté:', { theme: newTheme, accent: newAccentColor })
+  () => [appStore.settings.accentColor],
+  ([newAccentColor]) => {
+    console.log('🎨 Changement de couleur d\'accent détecté:', { accent: newAccentColor })
     applyAppearanceSettings()
   },
   { immediate: false }

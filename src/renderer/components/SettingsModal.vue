@@ -855,7 +855,7 @@
               <h3>🧪 Test rapide de l'apparence</h3>
               <p>Les paramètres d'apparence s'appliquent automatiquement à toute l'interface ! 🎨</p>
               <div class="test-info-card">
-                <p><strong>✅ Thème :</strong> {{ appStore.settings.theme || 'dark' }}</p>
+                <p><strong>✅ Thème :</strong> Base Eterna</p>
                 <p><strong>🎯 Couleur d'accent :</strong> {{ appStore.settings.accentColor || '#5865f2' }}</p>
                 <p><strong>📏 Taille police :</strong> {{ appStore.settings.fontSize || '16' }}px</p>
               </div>

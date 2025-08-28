@@ -592,7 +592,7 @@ export const useAppStore = defineStore('app', () => {
     onlineStatus: 'everyone',
     privateMessages: 'everyone',
     // Nouveaux paramètres d'apparence
-    theme: 'dark',
+    theme: 'base', // 🎨 THÈME DE BASE UNIQUE
     accentColor: '#5865f2',
     fontSize: '16',
     zoomLevel: '100',
@@ -636,7 +636,7 @@ export const useAppStore = defineStore('app', () => {
       onlineStatus: 'everyone',
       privateMessages: 'everyone',
       // Nouveaux paramètres d'apparence
-      theme: 'dark',
+      theme: 'base',
       accentColor: '#5865f2',
       fontSize: '16',
       zoomLevel: '100',
